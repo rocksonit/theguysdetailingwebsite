@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>The Guys Detailing – Fort Worth, TX</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -428,6 +430,12 @@
     flex-shrink: 0;
   }
 
+  .pkg-book-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
   .pkg-book {
     display: block;
     text-align: center;
@@ -443,16 +451,23 @@
     text-decoration: none;
     border-radius: 2px;
     transition: background 0.2s, border-color 0.2s;
+    cursor: pointer;
+    width: 100%;
   }
 
   .pkg-book:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.3); }
 
-  .pricing-card.featured .pkg-book {
+  .pkg-book.deposit {
     background: var(--red);
     border-color: var(--red);
+    color: var(--white);
   }
 
-  .pricing-card.featured .pkg-book:hover { background: var(--red-dark); }
+  .pkg-book.deposit:hover { background: var(--red-dark); border-color: var(--red-dark); }
+
+  .pricing-card.featured .pkg-book.schedule {
+    border-color: rgba(255,255,255,0.3);
+  }
 
   /* Extras note */
   .extras-note {
@@ -710,8 +725,7 @@
     </h1>
     <p class="hero-sub">Professional automotive and boat detailing that restores, protects, and transforms. We obsess over the details so you don't have to.</p>
     <div class="hero-actions">
-      <a class="btn-primary" href="#contact">Book an Appointment</a>
-      <a class="btn-ghost" href="#services">View Packages</a>
+      <a class="btn-primary" href="#services">Book an Appointment</a>
     </div>
   </div>
   <div class="hero-right">
@@ -793,7 +807,10 @@
           <li>Interior windows cleaned</li>
           <li>Door jams cleaned</li>
         </ul>
-        <a class="pkg-book" href="mailto:theguysdetailing@gmail.com">Book This Package</a>
+        <div class="pkg-book-wrap">
+          <a class="pkg-book deposit" href="https://connect.intuit.com/t/scs-v1-4582a89b685640b2a31f747a2b148e75663a48736dae432e9f5a0b4aa008e843bdde5d96482b4008bf29160a518250a4?locale=EN_US&cta=saveandcopylinkz" target="_blank">💳 Step 1 — Pay $25 Deposit</a>
+          <button class="pkg-book schedule" onclick="Calendly.initPopupWidget({url:'https://calendly.com/chaseweir125-feo0/30min'});return false;">📅 Step 2 — Schedule Appointment</button>
+        </div>
       </div>
 
       <!-- INTERMEDIATE -->
@@ -826,7 +843,10 @@
           <li>Headliner stain removal</li>
           <li>Steam clean cup holders, knobs & steering wheel</li>
         </ul>
-        <a class="pkg-book" href="mailto:theguysdetailing@gmail.com">Book This Package</a>
+        <div class="pkg-book-wrap">
+          <a class="pkg-book deposit" href="https://connect.intuit.com/t/scs-v1-4582a89b685640b2a31f747a2b148e75663a48736dae432e9f5a0b4aa008e843bdde5d96482b4008bf29160a518250a4?locale=EN_US&cta=saveandcopylinkz" target="_blank">💳 Step 1 — Pay $25 Deposit</a>
+          <button class="pkg-book schedule" onclick="Calendly.initPopupWidget({url:'https://calendly.com/chaseweir125-feo0/30min'});return false;">📅 Step 2 — Schedule Appointment</button>
+        </div>
       </div>
 
       <!-- ADVANCED -->
@@ -855,7 +875,10 @@
           <li>Heavy stain removal</li>
           <li>Full steam clean — console, door storage, air vents, belt buckles</li>
         </ul>
-        <a class="pkg-book" href="mailto:theguysdetailing@gmail.com">Book This Package</a>
+        <div class="pkg-book-wrap">
+          <a class="pkg-book deposit" href="https://connect.intuit.com/t/scs-v1-4582a89b685640b2a31f747a2b148e75663a48736dae432e9f5a0b4aa008e843bdde5d96482b4008bf29160a518250a4?locale=EN_US&cta=saveandcopylinkz" target="_blank">💳 Step 1 — Pay $25 Deposit</a>
+          <button class="pkg-book schedule" onclick="Calendly.initPopupWidget({url:'https://calendly.com/chaseweir125-feo0/30min'});return false;">📅 Step 2 — Schedule Appointment</button>
+        </div>
       </div>
 
     </div>
@@ -867,52 +890,55 @@
 
   <!-- MARINE PANEL -->
   <div class="pkg-panel" id="panel-marine">
-    <div class="pricing-grid" style="grid-template-columns: repeat(2,1fr); max-width: 860px;">
+    <div class="pricing-grid" style="grid-template-columns: repeat(1,1fr); max-width: 680px;">
 
-      <div class="pricing-card fade-up">
-        <div class="pkg-name">BOAT BASE</div>
-        <div class="pkg-tagline">Essential Marine Clean</div>
+      <div class="pricing-card featured fade-up">
+        <div class="pkg-name">MARINE DETAIL</div>
+        <div class="pkg-tagline">Full Service Boat Detail</div>
         <div class="pkg-prices">
           <div class="price-row">
-            <span class="price-label">Starting at</span>
-            <span class="price-value">Contact for Quote</span>
+            <span class="price-label">Price Per Foot</span>
+            <span class="price-value highlight">$10 – $35</span>
+          </div>
+          <div class="price-row">
+            <span class="price-label">All prices final upon inspection</span>
+            <span class="price-value" style="font-size:0.9rem;color:#888;font-family:'DM Sans',sans-serif;"></span>
           </div>
         </div>
         <ul class="pkg-includes">
-          <li>Hull exterior wash</li>
-          <li>Deck & cockpit clean</li>
-          <li>Windows & mirrors</li>
-          <li>Seat wipe-down</li>
-          <li>Tire shine on trailer tires</li>
+          <li>Hand wash & hand dry</li>
+          <li>Full vacuum</li>
+          <li>Vinyl clean & condition</li>
+          <li>Under seat wipe down</li>
+          <li>Sea deck scrubbed</li>
+          <li>Windows cleaned</li>
+          <li>Light oxidation removal</li>
+          <li>Scum line removal</li>
         </ul>
-        <a class="pkg-book" href="mailto:theguysdetailing@gmail.com">Get a Quote</a>
-      </div>
-
-      <div class="pricing-card featured fade-up" style="transition-delay:0.1s">
-        <div class="popular-badge">Full Service</div>
-        <div class="pkg-name">BOAT FULL</div>
-        <div class="pkg-tagline">Complete Marine Detail</div>
-        <div class="pkg-prices">
-          <div class="price-row">
-            <span class="price-label">Starting at</span>
-            <span class="price-value highlight">Contact for Quote</span>
+        <div style="margin-bottom:20px;padding:14px 16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:3px;">
+          <p style="font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--red);margin-bottom:10px;font-weight:500;">Add-Ons</p>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <div style="display:flex;justify-content:space-between;font-size:0.83rem;color:#888;">
+              <span>Trailer wash, tires cleaned & shined</span><span style="color:var(--white);">+$20</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:0.83rem;color:#888;">
+              <span>All compartments emptied & cleaned</span><span style="color:var(--white);">+$60</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:0.83rem;color:#888;">
+              <span>Heavy oxidation removal / buffing</span><span style="color:var(--white);">Price on inspection</span>
+            </div>
           </div>
         </div>
-        <ul class="pkg-includes">
-          <li>Everything in Base, plus:</li>
-          <li>Hull oxidation removal</li>
-          <li>Gelcoat polish & compound</li>
-          <li>UV protectant applied</li>
-          <li>Full interior steam clean</li>
-          <li>Chrome & metal polished</li>
-        </ul>
-        <a class="pkg-book" href="mailto:theguysdetailing@gmail.com">Get a Quote</a>
+        <div class="pkg-book-wrap">
+          <a class="pkg-book deposit" href="https://connect.intuit.com/t/scs-v1-4582a89b685640b2a31f747a2b148e75663a48736dae432e9f5a0b4aa008e843bdde5d96482b4008bf29160a518250a4?locale=EN_US&cta=saveandcopylinkz" target="_blank">💳 Step 1 — Pay $25 Deposit</a>
+          <button class="pkg-book schedule" onclick="Calendly.initPopupWidget({url:'https://calendly.com/chaseweir125-feo0/30min'});return false;">📅 Step 2 — Schedule Appointment</button>
+        </div>
       </div>
 
     </div>
     <div class="extras-note">
       <span>ℹ</span>
-      <span>Marine pricing varies by boat size and condition. Contact us for an accurate quote — we're happy to come take a look first.</span>
+      <span>Marine pricing is per foot and varies by boat condition. A $25 deposit is required to hold your appointment. Deposit goes toward your total balance due at completion.</span>
     </div>
   </div>
 
@@ -921,7 +947,7 @@
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-image">
-    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&auto=format&fit=crop&q=80" alt="Detailing professional at work" style="width:100%;height:100%;min-height:580px;object-fit:cover;filter:brightness(0.65) contrast(1.1);" />
+    <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=900&auto=format&fit=crop&q=80" alt="Professional car detailing" style="width:100%;height:100%;min-height:580px;object-fit:cover;filter:brightness(0.65) contrast(1.1);" />
   </div>
   <div class="about-content">
     <p class="section-label">About Us</p>
@@ -958,20 +984,46 @@
   <div class="gallery-grid">
     <div class="gallery-cell"><img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=800&auto=format&fit=crop&q=80" alt="Car detail" /></div>
     <div class="gallery-cell"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&fit=crop&q=80" alt="Car wash" /></div>
-    <div class="gallery-cell"><img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&auto=format&fit=crop&q=80" alt="Polishing" /></div>
     <div class="gallery-cell"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&auto=format&fit=crop&q=80" alt="Luxury car" /></div>
-    <div class="gallery-cell"><img src="https://images.unsplash.com/photo-1611701438862-a8cac8e7f2e9?w=600&auto=format&fit=crop&q=80" alt="Interior detail" /></div>
     <div class="gallery-cell"><img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=600&auto=format&fit=crop&q=80" alt="Car shine" /></div>
+    <div class="gallery-cell"><img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=600&auto=format&fit=crop&q=80" alt="Wheel detail" /></div>
   </div>
 </section>
 
 <!-- CTA STRIP -->
-<div class="cta-strip">
+<div class="cta-strip" id="contact">
   <div class="cta-text">
     <h2 class="section-title">READY TO BOOK?</h2>
-    <p>Fort Worth area · Mobile & in-shop available · Fast turnaround</p>
+    <p style="color:rgba(255,255,255,0.85);margin-bottom:20px;">Here's how it works:</p>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:8px;">
+      <div style="display:flex;align-items:flex-start;gap:14px;">
+        <span style="background:rgba(255,255,255,0.2);color:white;font-family:'Bebas Neue',sans-serif;font-size:1.2rem;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</span>
+        <div>
+          <strong style="color:white;font-size:0.9rem;display:block;margin-bottom:2px;">Pay the $25 Deposit</strong>
+          <span style="color:rgba(255,255,255,0.65);font-size:0.82rem;">A $25 deposit is required to secure your appointment. This goes toward your total.</span>
+        </div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:14px;">
+        <span style="background:rgba(255,255,255,0.2);color:white;font-family:'Bebas Neue',sans-serif;font-size:1.2rem;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</span>
+        <div>
+          <strong style="color:white;font-size:0.9rem;display:block;margin-bottom:2px;">Schedule Your Appointment</strong>
+          <span style="color:rgba(255,255,255,0.65);font-size:0.82rem;">Once your deposit is confirmed, pick your date and time. Reservations are not held without a deposit.</span>
+        </div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:14px;">
+        <span style="background:rgba(255,255,255,0.2);color:white;font-family:'Bebas Neue',sans-serif;font-size:1.2rem;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">3</span>
+        <div>
+          <strong style="color:white;font-size:0.9rem;display:block;margin-bottom:2px;">We'll Take Care of the Rest</strong>
+          <span style="color:rgba(255,255,255,0.65);font-size:0.82rem;">Final price is confirmed upon inspection. Balance is due when the job is complete.</span>
+        </div>
+      </div>
+    </div>
   </div>
-  <a class="btn-white" href="mailto:theguysdetailing@gmail.com" id="contact">Schedule Your Detail →</a>
+  <div style="display:flex;flex-direction:column;gap:12px;flex-shrink:0;align-items:center;min-width:220px;">
+    <a class="btn-white" href="https://connect.intuit.com/t/scs-v1-4582a89b685640b2a31f747a2b148e75663a48736dae432e9f5a0b4aa008e843bdde5d96482b4008bf29160a518250a4?locale=EN_US&cta=saveandcopylinkz" target="_blank">💳 Step 1 — Pay $25 Deposit</a>
+    <a class="btn-white" style="background:transparent;border:2px solid rgba(255,255,255,0.4);color:white;" href="https://calendly.com/chaseweir125-feo0/30min" target="_blank">📅 Step 2 — Schedule Appointment</a>
+    <p style="color:rgba(255,255,255,0.45);font-size:0.72rem;text-align:center;letter-spacing:0.05em;">Deposit required before reservation is confirmed</p>
+  </div>
 </div>
 
 <!-- FOOTER -->
@@ -994,6 +1046,7 @@
     <h4>Contact</h4>
     <ul>
       <li><a href="mailto:theguysdetailing@gmail.com">theguysdetailing@gmail.com</a></li>
+      <li><a href="mailto:theguysdetailing@gmail.com" style="color:var(--red);">Contact Us →</a></li>
       <li><a href="#">Fort Worth, Texas</a></li>
       <li><a href="https://www.facebook.com/profile.php?id=100093197124794" target="_blank">Facebook</a></li>
       <li><a href="#">Book an Appointment</a></li>

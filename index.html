@@ -486,7 +486,8 @@
     align-items: flex-start;
   }
 
-  .extras-note span { color: var(--red); font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+  .extras-note span:first-child { color: var(--red); font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+  .extras-note span:last-child { min-width: 0; }
 
   /* Hide/show panels */
   .pkg-panel { display: none; }
@@ -1139,7 +1140,7 @@
         <div class="stat-label">Avg. Customer Rating</div>
       </div>
       <div>
-        <div class="stat-num">2+</div>
+        <div class="stat-num">3+</div>
         <div class="stat-label">Years in Fort Worth</div>
       </div>
       <div>
@@ -1160,7 +1161,7 @@
     <p class="section-label">Our Work</p>
     <h2 class="section-title">BEFORE & AFTER</h2>
   </div>
-  <div class="gallery-grid">
+  <div class="gallery-grid" id="gallery-grid">
     <div class="gallery-cell"><img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=800&auto=format&fit=crop&q=80" alt="Car detail" /></div>
     <div class="gallery-cell"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&fit=crop&q=80" alt="Car wash" /></div>
     <div class="gallery-cell"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&auto=format&fit=crop&q=80" alt="Luxury car" /></div>
@@ -1250,7 +1251,7 @@
         </div>
 
         <button type="submit" class="form-submit">Request My Quote</button>
-        <p class="form-note">We'll call or email you back shortly — no payment required.</p>
+        <p class="form-note">We'll call or email you back shortly.</p>
       </form>
 
       <div class="quote-form form-success" id="quote-success">
@@ -1395,6 +1396,46 @@
     }
   }
   applySheetPricing();
+
+  /*
+    LIVE GALLERY FROM GOOGLE DRIVE
+    -------------------------------
+    Upload photos to the shared Drive folder and they'll appear here
+    automatically. The folder must stay set to "Anyone with the link
+    → Viewer". If the fetch fails or the folder is empty, the stock
+    photos hardcoded above in the HTML are shown as a fallback.
+  */
+  const DRIVE_API_KEY = 'AIzaSyD62xgmMEidxsrskYlNYBSZNIZetTioOOk';
+  const DRIVE_FOLDER_ID = '1K3iR0lTsJny0UQAZ_0_aAROHYWMSdc1c';
+
+  async function loadGalleryFromDrive() {
+    if (!DRIVE_API_KEY || !DRIVE_FOLDER_ID) return;
+    try {
+      const q = encodeURIComponent(`'${DRIVE_FOLDER_ID}' in parents and mimeType contains 'image/' and trashed = false`);
+      const url = `https://www.googleapis.com/drive/v3/files?q=${q}&key=${DRIVE_API_KEY}&fields=files(id,name,thumbnailLink)&supportsAllDrives=true&includeItemsFromAllDrives=true&orderBy=createdTime desc&pageSize=20`;
+      const res = await fetch(url, { cache: 'no-store' });
+      if (!res.ok) return;
+      const data = await res.json();
+      const files = (data.files || []).filter(f => f.thumbnailLink);
+      if (!files.length) return;
+
+      const grid = document.getElementById('gallery-grid');
+      grid.innerHTML = '';
+      files.forEach(f => {
+        const cell = document.createElement('div');
+        cell.className = 'gallery-cell';
+        const img = document.createElement('img');
+        img.src = f.thumbnailLink.replace(/=s\d+$/, '=s1600');
+        img.alt = f.name || 'The Guys Detailing — completed work';
+        img.loading = 'lazy';
+        cell.appendChild(img);
+        grid.appendChild(cell);
+      });
+    } catch (err) {
+      console.warn('Gallery photos unavailable, showing default gallery.', err);
+    }
+  }
+  loadGalleryFromDrive();
 </script>
 </body>
 </html>

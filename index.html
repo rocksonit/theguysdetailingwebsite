@@ -5,8 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>The Guys Detailing – Fort Worth, TX</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -31,6 +29,7 @@
     font-family: var(--font-body);
     font-weight: 300;
     overflow-x: hidden;
+    overflow-wrap: break-word;
   }
 
   /* ── NAV ── */
@@ -103,6 +102,7 @@
     padding: 80px 64px 80px 80px;
     position: relative;
     z-index: 2;
+    min-width: 0;
   }
 
   .hero-eyebrow {
@@ -136,6 +136,7 @@
     display: flex;
     gap: 16px;
     align-items: center;
+    flex-wrap: wrap;
   }
 
   .btn-primary {
@@ -171,6 +172,8 @@
 
   .btn-ghost:hover { opacity: 1; }
   .btn-ghost::after { content: '→'; font-size: 1.1rem; }
+  .btn-ghost.btn-call { opacity: 1; }
+  .btn-ghost.btn-call::after { content: none; }
 
   .hero-right {
     position: relative;
@@ -516,6 +519,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    min-width: 0;
   }
 
   .about-stats {
@@ -616,6 +620,175 @@
 
   .btn-white:hover { background: #e0ddd9; transform: translateY(-2px); }
 
+  /* ── QUOTE FORM ── */
+  .quote-section {
+    background: var(--off-black);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .quote-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 72px;
+    align-items: start;
+  }
+
+  .quote-info,
+  .quote-form-wrap { min-width: 0; }
+
+  .call-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 36px;
+    padding: 24px 28px;
+    background: rgba(200,34,46,0.08);
+    border: 1px solid rgba(200,34,46,0.3);
+    border-radius: 4px;
+    flex-wrap: wrap;
+  }
+
+  .call-box-text { min-width: 0; }
+  .call-box-text strong { display: block; font-size: 0.95rem; color: var(--white); margin-bottom: 4px; }
+  .call-box-text span { color: #999; font-size: 0.84rem; line-height: 1.5; }
+  .call-box-btn { white-space: nowrap; flex-shrink: 0; }
+
+  .quote-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin-top: 36px;
+  }
+
+  .quote-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .quote-step > div { min-width: 0; }
+
+  .quote-step-num {
+    background: var(--red);
+    color: var(--white);
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .quote-step strong { display: block; font-size: 0.92rem; margin-bottom: 3px; color: var(--white); font-weight: 500; }
+  .quote-step span { color: #888; font-size: 0.85rem; line-height: 1.6; }
+
+  .quote-form {
+    background: var(--charcoal);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 44px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    background: var(--off-black);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: var(--white);
+    padding: 13px 14px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    border-radius: 2px;
+    transition: border-color 0.2s;
+  }
+
+  .form-group input::placeholder { color: #555; }
+
+  .form-group input:focus,
+  .form-group select:focus {
+    outline: none;
+    border-color: var(--red);
+  }
+
+  .form-divider {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin: 8px 0 18px;
+    font-weight: 500;
+  }
+
+  .form-submit {
+    width: 100%;
+    background: var(--red);
+    color: var(--white);
+    border: none;
+    padding: 16px;
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 6px;
+  }
+
+  .form-submit:hover { background: var(--red-dark); }
+
+  .form-note {
+    text-align: center;
+    color: #666;
+    font-size: 0.75rem;
+    margin-top: 14px;
+    letter-spacing: 0.03em;
+  }
+
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .form-success.visible { display: block; }
+  .quote-form.hidden { display: none; }
+
+  .form-success h3 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    letter-spacing: 0.03em;
+    margin-bottom: 12px;
+  }
+
+  .form-success p { color: #999; font-size: 0.92rem; line-height: 1.6; }
+
   /* ── FOOTER ── */
   footer {
     background: var(--off-black);
@@ -625,6 +798,8 @@
     grid-template-columns: 1.5fr 1fr 1fr;
     gap: 60px;
   }
+
+  footer > div { min-width: 0; }
 
   .footer-brand .nav-logo { font-size: 2rem; display: block; margin-bottom: 14px; }
 
@@ -698,6 +873,9 @@
     .services-header { flex-direction: column; align-items: flex-start; }
     .pkg-tabs { width: 100%; }
     .pkg-tab { flex: 1; text-align: center; }
+    .quote-grid { grid-template-columns: 1fr; gap: 44px; }
+    .quote-form { padding: 28px; }
+    .form-row { grid-template-columns: 1fr; gap: 0; }
   }
 </style>
 </head>
@@ -711,7 +889,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="#gallery">Gallery</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a class="nav-cta" href="#contact">Book Now</a></li>
+    <li><a class="nav-cta" href="#contact">Get a Quote</a></li>
   </ul>
 </nav>
 
@@ -725,12 +903,13 @@
     </h1>
     <p class="hero-sub">Professional automotive and boat detailing that restores, protects, and transforms. We obsess over the details so you don't have to.</p>
     <div class="hero-actions">
-      <a class="btn-primary" href="#services">Book an Appointment</a>
+      <a class="btn-primary" href="#contact">Get a Free Quote</a>
+      <a class="btn-ghost btn-call" href="tel:+15737681029">📞 Call (573) 768-1029</a>
     </div>
   </div>
   <div class="hero-right">
     <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=1400&auto=format&fit=crop&q=80" alt="Car being detailed" />
-    <a class="hero-badge" href="https://www.google.com/search?sca_esv=a57f38d8b1aff971&rlz=1C1ONGR_enUS975US975&cs=0&sxsrf=ANbL-n50rG5ius6KNYpDh-_O6uBKZi7eiA:1773115428727&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOWVvxywWFmgayz5wvsi-C-jlJQFDozSlVYJnfvxmhyWuMJMXeMPbvDZKiaUOStchVRYC6O38OSj7X5_aOx-cuaPmmC8r1DZSqWk1a2b8Xpv_VZTRbQ%3D%3D&q=The+Guys+Detailing+Reviews&sa=X&ved=2ahUKEwj0tJnauZSTAxVYhIkEHUF4NQEQ0bkNegQIIRAF&cshid=1773115477311165&biw=1920&bih=945&dpr=1" target="_blank" style="text-decoration:none;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='rgba(30,30,30,0.95)'" onmouseout="this.style.background='rgba(10,10,10,0.85)'">
+    <a class="hero-badge" href="https://www.google.com/search?sca_esv=a57f38d8b1aff971&rlz=1C1ONGR_enUS975US975&cs=0&sxsrf=ANbL-n50rG5ius6KNYpDh-_O6uBKZi7eiA:1773115428727&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOWVvxywWFmgayz5wvsi-C-jlJQFDozSlVYJnfvxmhyWuMJMXeMPbvDZKiaUOStchVRYC6O38OSj7X5_aOx-cuaPmmC8r1DZSqWk1a2b8Xpv_VZTRbQ%3D%3D&q=The+Guys+Detailing+Reviews&sa=X&ved=2ahUKEwj0tJnauZSTAxVYhIkEHUF4NQEQ0bkNegQIIRAF&cshid=1773115477311165&biw=1920&bih=945&dpr=1" target="_blank" rel="noopener noreferrer" style="text-decoration:none;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='rgba(30,30,30,0.95)'" onmouseout="this.style.background='rgba(10,10,10,0.85)'">
       <div class="badge-icon">⭐</div>
       <div class="badge-text">
         <strong>5-Star Rated</strong>
@@ -785,15 +964,15 @@
         <div class="pkg-prices">
           <div class="price-row">
             <span class="price-label">Compact</span>
-            <span class="price-value">$130</span>
+            <span class="price-value" id="price-base_compact">$130</span>
           </div>
           <div class="price-row">
             <span class="price-label">Midsize</span>
-            <span class="price-value">$150</span>
+            <span class="price-value" id="price-base_midsize">$150</span>
           </div>
           <div class="price-row">
             <span class="price-label">Large SUV / Truck</span>
-            <span class="price-value">$180</span>
+            <span class="price-value" id="price-base_large">$180</span>
           </div>
         </div>
         <ul class="pkg-includes">
@@ -808,8 +987,7 @@
           <li>Door jams cleaned</li>
         </ul>
         <div class="pkg-book-wrap">
-          <a class="pkg-book deposit" href="https://connect.intuit.com/t/scs-v1-4582a89b685640b2a31f747a2b148e75663a48736dae432e9f5a0b4aa008e843bdde5d96482b4008bf29160a518250a4?locale=EN_US&cta=saveandcopylinkz" target="_blank">💳 Step 1 — Pay $25 Deposit</a>
-          <button class="pkg-book schedule" onclick="Calendly.initPopupWidget({url:'https://calendly.com/chaseweir125-feo0/30min'});return false;">📅 Step 2 — Schedule Appointment</button>
+          <a class="pkg-book deposit" href="#contact">📋 Get a Free Quote</a>
         </div>
       </div>
 
@@ -821,15 +999,15 @@
         <div class="pkg-prices">
           <div class="price-row">
             <span class="price-label">Compact</span>
-            <span class="price-value highlight">$230</span>
+            <span class="price-value highlight" id="price-intermediate_compact">$230</span>
           </div>
           <div class="price-row">
             <span class="price-label">Midsize</span>
-            <span class="price-value highlight">$250</span>
+            <span class="price-value highlight" id="price-intermediate_midsize">$250</span>
           </div>
           <div class="price-row">
             <span class="price-label">Large SUV / Truck</span>
-            <span class="price-value highlight">$280</span>
+            <span class="price-value highlight" id="price-intermediate_large">$280</span>
           </div>
         </div>
         <ul class="pkg-includes">
@@ -844,8 +1022,7 @@
           <li>Steam clean cup holders, knobs & steering wheel</li>
         </ul>
         <div class="pkg-book-wrap">
-          <a class="pkg-book deposit" href="https://connect.intuit.com/t/scs-v1-4582a89b685640b2a31f747a2b148e75663a48736dae432e9f5a0b4aa008e843bdde5d96482b4008bf29160a518250a4?locale=EN_US&cta=saveandcopylinkz" target="_blank">💳 Step 1 — Pay $25 Deposit</a>
-          <button class="pkg-book schedule" onclick="Calendly.initPopupWidget({url:'https://calendly.com/chaseweir125-feo0/30min'});return false;">📅 Step 2 — Schedule Appointment</button>
+          <a class="pkg-book deposit" href="#contact">📋 Get a Free Quote</a>
         </div>
       </div>
 
@@ -856,15 +1033,15 @@
         <div class="pkg-prices">
           <div class="price-row">
             <span class="price-label">Compact</span>
-            <span class="price-value">$330</span>
+            <span class="price-value" id="price-advanced_compact">$330</span>
           </div>
           <div class="price-row">
             <span class="price-label">Midsize</span>
-            <span class="price-value">$350</span>
+            <span class="price-value" id="price-advanced_midsize">$350</span>
           </div>
           <div class="price-row">
             <span class="price-label">Large SUV / Truck</span>
-            <span class="price-value">$380</span>
+            <span class="price-value" id="price-advanced_large">$380</span>
           </div>
         </div>
         <ul class="pkg-includes">
@@ -876,8 +1053,7 @@
           <li>Full steam clean — console, door storage, air vents, belt buckles</li>
         </ul>
         <div class="pkg-book-wrap">
-          <a class="pkg-book deposit" href="https://connect.intuit.com/t/scs-v1-4582a89b685640b2a31f747a2b148e75663a48736dae432e9f5a0b4aa008e843bdde5d96482b4008bf29160a518250a4?locale=EN_US&cta=saveandcopylinkz" target="_blank">💳 Step 1 — Pay $25 Deposit</a>
-          <button class="pkg-book schedule" onclick="Calendly.initPopupWidget({url:'https://calendly.com/chaseweir125-feo0/30min'});return false;">📅 Step 2 — Schedule Appointment</button>
+          <a class="pkg-book deposit" href="#contact">📋 Get a Free Quote</a>
         </div>
       </div>
 
@@ -898,7 +1074,7 @@
         <div class="pkg-prices">
           <div class="price-row">
             <span class="price-label">Price Per Foot</span>
-            <span class="price-value highlight">$10 – $35</span>
+            <span class="price-value highlight" id="price-marine_per_foot">$10 – $35</span>
           </div>
           <div class="price-row">
             <span class="price-label">All prices final upon inspection</span>
@@ -919,10 +1095,10 @@
           <p style="font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--red);margin-bottom:10px;font-weight:500;">Add-Ons</p>
           <div style="display:flex;flex-direction:column;gap:6px;">
             <div style="display:flex;justify-content:space-between;font-size:0.83rem;color:#888;">
-              <span>Trailer wash, tires cleaned & shined</span><span style="color:var(--white);">+$20</span>
+              <span>Trailer wash, tires cleaned & shined</span><span style="color:var(--white);" id="price-marine_addon_trailer">+$20</span>
             </div>
             <div style="display:flex;justify-content:space-between;font-size:0.83rem;color:#888;">
-              <span>All compartments emptied & cleaned</span><span style="color:var(--white);">+$60</span>
+              <span>All compartments emptied & cleaned</span><span style="color:var(--white);" id="price-marine_addon_compartments">+$60</span>
             </div>
             <div style="display:flex;justify-content:space-between;font-size:0.83rem;color:#888;">
               <span>Heavy oxidation removal / buffing</span><span style="color:var(--white);">Price on inspection</span>
@@ -930,15 +1106,14 @@
           </div>
         </div>
         <div class="pkg-book-wrap">
-          <a class="pkg-book deposit" href="https://connect.intuit.com/t/scs-v1-4582a89b685640b2a31f747a2b148e75663a48736dae432e9f5a0b4aa008e843bdde5d96482b4008bf29160a518250a4?locale=EN_US&cta=saveandcopylinkz" target="_blank">💳 Step 1 — Pay $25 Deposit</a>
-          <button class="pkg-book schedule" onclick="Calendly.initPopupWidget({url:'https://calendly.com/chaseweir125-feo0/30min'});return false;">📅 Step 2 — Schedule Appointment</button>
+          <a class="pkg-book deposit" href="#contact">📋 Get a Free Quote</a>
         </div>
       </div>
 
     </div>
     <div class="extras-note">
       <span>ℹ</span>
-      <span>Marine pricing is per foot and varies by boat condition. A $25 deposit is required to hold your appointment. Deposit goes toward your total balance due at completion.</span>
+      <span>Marine pricing is per foot and varies by boat condition. Submit your info below and we'll call you with a firm quote.</span>
     </div>
   </div>
 
@@ -956,7 +1131,7 @@
     <p style="color:#888;font-size:0.92rem;line-height:1.75;">Based out of Fort Worth, Texas, The Guys Detailing was built on a simple belief: your car or boat deserves real care. We use professional-grade products, take our time, and don't cut corners — because you'll see the difference.</p>
     <div class="about-stats">
       <div>
-        <div class="stat-num">200+</div>
+        <div class="stat-num">1000+</div>
         <div class="stat-label">Vehicles Detailed</div>
       </div>
       <div>
@@ -974,7 +1149,7 @@
     </div>
     <div style="margin-top:32px;">
       <p style="color:#666;font-size:0.85rem;margin-bottom:14px;letter-spacing:0.05em;">See what our customers are saying</p>
-      <a href="https://share.google/Jl9AcWinlf67GaYWs" target="_blank" class="btn-primary" style="display:inline-flex;align-items:center;gap:8px;">⭐ Read Our Google Reviews</a>
+      <a href="https://share.google/Jl9AcWinlf67GaYWs" target="_blank" rel="noopener noreferrer" class="btn-primary" style="display:inline-flex;align-items:center;gap:8px;">⭐ Read Our Google Reviews</a>
     </div>
   </div>
 </section>
@@ -994,41 +1169,97 @@
   </div>
 </section>
 
-<!-- CTA STRIP -->
-<div class="cta-strip" id="contact">
-  <div class="cta-text">
-    <h2 class="section-title">READY TO BOOK?</h2>
-    <p style="color:rgba(255,255,255,0.85);margin-bottom:20px;">Here's how it works:</p>
-    <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:8px;">
-      <div style="display:flex;align-items:flex-start;gap:14px;">
-        <span style="background:rgba(255,255,255,0.2);color:white;font-family:'Bebas Neue',sans-serif;font-size:1.2rem;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</span>
-        <div>
-          <strong style="color:white;font-size:0.9rem;display:block;margin-bottom:2px;">Pay the $25 Deposit</strong>
-          <span style="color:rgba(255,255,255,0.65);font-size:0.82rem;">A $25 deposit is required to secure your appointment. This goes toward your total.</span>
+<!-- QUOTE FORM -->
+<section class="quote-section" id="contact">
+  <div class="quote-grid">
+    <div class="quote-info">
+      <p class="section-label">Get Started</p>
+      <h2 class="section-title">GET YOUR FREE QUOTE</h2>
+      <p class="section-desc">Tell us about you and your vehicle. No payment, no booking — we'll call you to ask a few quick questions and give you a real, personalized quote.</p>
+      <div class="quote-steps">
+        <div class="quote-step">
+          <span class="quote-step-num">1</span>
+          <div>
+            <strong>Fill Out the Form</strong>
+            <span>Takes less than a minute. No deposit, no commitment.</span>
+          </div>
+        </div>
+        <div class="quote-step">
+          <span class="quote-step-num">2</span>
+          <div>
+            <strong>We'll Call You</strong>
+            <span>We'll ask a few questions about your vehicle's condition and give you an accurate price — better than any online calculator.</span>
+          </div>
+        </div>
+        <div class="quote-step">
+          <span class="quote-step-num">3</span>
+          <div>
+            <strong>We Come to You</strong>
+            <span>Once you're happy with the quote, we'll schedule a time and detail your vehicle wherever it's parked.</span>
+          </div>
         </div>
       </div>
-      <div style="display:flex;align-items:flex-start;gap:14px;">
-        <span style="background:rgba(255,255,255,0.2);color:white;font-family:'Bebas Neue',sans-serif;font-size:1.2rem;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</span>
-        <div>
-          <strong style="color:white;font-size:0.9rem;display:block;margin-bottom:2px;">Schedule Your Appointment</strong>
-          <span style="color:rgba(255,255,255,0.65);font-size:0.82rem;">Once your deposit is confirmed, pick your date and time. Reservations are not held without a deposit.</span>
+      <div class="call-box">
+        <div class="call-box-text">
+          <strong>Prefer to talk it through?</strong>
+          <span>Call or text us directly — we're happy to answer questions right on the phone.</span>
         </div>
+        <a class="btn-primary call-box-btn" href="tel:+15737681029">📞 (573) 768-1029</a>
       </div>
-      <div style="display:flex;align-items:flex-start;gap:14px;">
-        <span style="background:rgba(255,255,255,0.2);color:white;font-family:'Bebas Neue',sans-serif;font-size:1.2rem;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">3</span>
-        <div>
-          <strong style="color:white;font-size:0.9rem;display:block;margin-bottom:2px;">We'll Take Care of the Rest</strong>
-          <span style="color:rgba(255,255,255,0.65);font-size:0.82rem;">Final price is confirmed upon inspection. Balance is due when the job is complete.</span>
+    </div>
+
+    <div class="quote-form-wrap">
+      <form class="quote-form" id="quote-form" action="https://formspree.io/f/xzeppkdk" method="POST">
+        <div class="form-group">
+          <label for="q-name">Full Name</label>
+          <input type="text" id="q-name" name="name" placeholder="John Smith" required />
         </div>
+        <div class="form-group">
+          <label for="q-email">Email</label>
+          <input type="email" id="q-email" name="email" placeholder="you@email.com" required />
+        </div>
+        <div class="form-group">
+          <label for="q-address">Address</label>
+          <input type="text" id="q-address" name="address" placeholder="123 Main St, Fort Worth, TX" required />
+        </div>
+        <div class="form-group">
+          <label for="q-location">Where Will the Detail Be?</label>
+          <input type="text" id="q-location" name="detail_location" placeholder="Same as above, or work / storage / other address" required />
+        </div>
+
+        <p class="form-divider">Vehicle Info</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="q-year">Year</label>
+            <input type="text" id="q-year" name="vehicle_year" placeholder="2021" inputmode="numeric" required />
+          </div>
+          <div class="form-group">
+            <label for="q-make">Make</label>
+            <input type="text" id="q-make" name="vehicle_make" placeholder="Toyota" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="q-model">Model</label>
+            <input type="text" id="q-model" name="vehicle_model" placeholder="Tacoma" required />
+          </div>
+          <div class="form-group">
+            <label for="q-color">Color</label>
+            <input type="text" id="q-color" name="vehicle_color" placeholder="Black" required />
+          </div>
+        </div>
+
+        <button type="submit" class="form-submit">Request My Quote</button>
+        <p class="form-note">We'll call or email you back shortly — no payment required.</p>
+      </form>
+
+      <div class="quote-form form-success" id="quote-success">
+        <h3>Got It! 🎉</h3>
+        <p>Thanks for reaching out. We'll review your info and give you a call soon with your personalized quote.</p>
       </div>
     </div>
   </div>
-  <div style="display:flex;flex-direction:column;gap:12px;flex-shrink:0;align-items:center;min-width:220px;">
-    <a class="btn-white" href="https://connect.intuit.com/t/scs-v1-4582a89b685640b2a31f747a2b148e75663a48736dae432e9f5a0b4aa008e843bdde5d96482b4008bf29160a518250a4?locale=EN_US&cta=saveandcopylinkz" target="_blank">💳 Step 1 — Pay $25 Deposit</a>
-    <a class="btn-white" style="background:transparent;border:2px solid rgba(255,255,255,0.4);color:white;" href="https://calendly.com/chaseweir125-feo0/30min" target="_blank">📅 Step 2 — Schedule Appointment</a>
-    <p style="color:rgba(255,255,255,0.45);font-size:0.72rem;text-align:center;letter-spacing:0.05em;">Deposit required before reservation is confirmed</p>
-  </div>
-</div>
+</section>
 
 <!-- FOOTER -->
 <footer>
@@ -1049,11 +1280,12 @@
   <div class="footer-col">
     <h4>Contact</h4>
     <ul>
+      <li><a href="tel:+15737681029" style="color:var(--white);">(573) 768-1029</a></li>
       <li><a href="mailto:theguysdetailing@gmail.com">theguysdetailing@gmail.com</a></li>
       <li><a href="mailto:theguysdetailing@gmail.com" style="color:var(--red);">Contact Us →</a></li>
       <li><a href="#">Fort Worth, Texas</a></li>
-      <li><a href="https://www.facebook.com/profile.php?id=100093197124794" target="_blank">Facebook</a></li>
-      <li><a href="#">Book an Appointment</a></li>
+      <li><a href="https://www.facebook.com/profile.php?id=100093197124794" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+      <li><a href="#contact">Get a Quote</a></li>
     </ul>
   </div>
 </footer>
@@ -1074,6 +1306,95 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  const quoteForm = document.getElementById('quote-form');
+  quoteForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const submitBtn = quoteForm.querySelector('.form-submit');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    try {
+      const res = await fetch(quoteForm.action, {
+        method: 'POST',
+        body: new FormData(quoteForm),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        quoteForm.classList.add('hidden');
+        document.getElementById('quote-success').classList.add('visible');
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch (err) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Request My Quote';
+      alert("Something went wrong sending your info. Please try again or email us directly at theguysdetailing@gmail.com.");
+    }
+  });
+
+  /*
+    LIVE PRICING FROM GOOGLE SHEETS
+    --------------------------------
+    1. Create a Google Sheet with 3 columns: Label | Key | Price
+       (Label is just for his own reference, e.g. "Base - Compact").
+       Key must match one of the IDs below exactly, and Price is the
+       exact text to display (e.g. "$140" or "$10 – $35" or "+$25").
+       Required keys: base_compact, base_midsize, base_large,
+       intermediate_compact, intermediate_midsize, intermediate_large,
+       advanced_compact, advanced_midsize, advanced_large,
+       marine_per_foot, marine_addon_trailer, marine_addon_compartments
+    2. File → Share → Publish to web → select the sheet → CSV →
+       check "Automatically republish when changes are made" → Publish.
+    3. Paste the resulting URL below as PRICING_SHEET_CSV_URL.
+    If the URL is left blank or the sheet is unreachable, the prices
+    hardcoded above in the HTML are shown as a fallback.
+  */
+  const PRICING_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQOIl5EopF4z_94S0VgHUJkSGSDBwTI5-CIhZ0gHzu5szKcM-WqDRayz1rh57X6OplDmM3Q2vC8MHwT/pub?gid=1392445052&single=true&output=csv';
+
+  function parseCsv(text) {
+    const rows = [];
+    let row = [], field = '', inQuotes = false;
+    for (let i = 0; i < text.length; i++) {
+      const c = text[i];
+      if (inQuotes) {
+        if (c === '"') {
+          if (text[i + 1] === '"') { field += '"'; i++; }
+          else { inQuotes = false; }
+        } else {
+          field += c;
+        }
+      } else if (c === '"') {
+        inQuotes = true;
+      } else if (c === ',') {
+        row.push(field); field = '';
+      } else if (c === '\n' || c === '\r') {
+        if (c === '\r' && text[i + 1] === '\n') i++;
+        row.push(field); field = '';
+        rows.push(row); row = [];
+      } else {
+        field += c;
+      }
+    }
+    if (field.length || row.length) { row.push(field); rows.push(row); }
+    return rows.filter(r => r.some(f => f.trim() !== ''));
+  }
+
+  async function applySheetPricing() {
+    if (!PRICING_SHEET_CSV_URL) return;
+    try {
+      const res = await fetch(PRICING_SHEET_CSV_URL, { cache: 'no-store' });
+      if (!res.ok) return;
+      const rows = parseCsv(await res.text());
+      rows.slice(1).forEach(([, key, value]) => {
+        if (!key || !value) return;
+        const el = document.getElementById('price-' + key.trim());
+        if (el) el.textContent = value.trim();
+      });
+    } catch (err) {
+      console.warn('Pricing sheet unavailable, showing default prices.', err);
+    }
+  }
+  applySheetPricing();
 </script>
 </body>
 </html>
